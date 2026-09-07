@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — WhyThis</title>
+<meta name="description" content="Run a free pilot on your repo, or start a conversation about partnering with WhyThis.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <span class="dots"><span></span><span></span><span></span></span>
+    <a class="wordmark" href="index.html">why-this<span class="dim">.md</span></a>
+    <nav class="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="prospectus.html">Prospectus</a>
+      <a class="nav-link active" href="contact.html">Contact</a>
+    </nav>
+    <a class="cta-btn" href="contact.html">Get a demo</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="section">
+      <p class="eyebrow">Contact</p>
+      <h1 style="font-size:clamp(2rem,4vw,2.6rem); margin-top:12px;">Let's talk.</h1>
+      <p class="prose lede" style="margin-top:14px;">Whether you want to run a free pilot on your own repo, or you're an investor curious about the model — the fastest way to reach me is directly.</p>
+
+      <div class="contact-grid">
+        <form id="contact-form">
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" required>
+          </div>
+          <div class="field">
+            <label for="cf-email">Work email</label>
+            <input id="cf-email" name="email" type="email" required>
+          </div>
+          <div class="field">
+            <label for="cf-company">Company</label>
+            <input id="cf-company" name="company" type="text">
+          </div>
+          <div class="field">
+            <label for="cf-interest">I'm interested in</label>
+            <select id="cf-interest" name="interest">
+              <option>Running a free pilot</option>
+              <option>Partnership or investment</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" required placeholder="What are you hoping to use WhyThis for?"></textarea>
+          </div>
+          <div style="margin-top:18px;">
+            <button type="submit" class="cta-btn">Send message →</button>
+          </div>
+          <p class="contact-form-note">This opens your email client with the message pre-filled, addressed directly — nothing is stored on a server in between.</p>
+          <p class="contact-form-status" id="contact-form-status" hidden>Opening your email client…</p>
+        </form>
+
+        <div class="contact-info-card">
+          <h3>Direct contact</h3>
+          <p>I read every message personally and aim to reply within a business day.</p>
+          <div class="contact-info-row">
+            <div class="k">Email</div>
+            <div class="v">sushma.verma@instalogic.in</div>
+          </div>
+          <div class="contact-info-row">
+            <div class="k">Best for</div>
+            <div class="v" style="font-family:var(--sans); font-size:0.88rem;">Free pilots, partnership conversations, questions about the prospectus</div>
+          </div>
+          <div class="contact-info-row">
+            <div class="k">Response time</div>
+            <div class="v" style="font-family:var(--sans); font-size:0.88rem;">Within one business day</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="prospectus.html">Prospectus</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:sushma.verma@instalogic.in">sushma.verma@instalogic.in</a>
+      </div>
+    </div>
+    <p class="footer-fine">WhyThis — institutional memory for engineering teams. Built for teams tired of Slack archaeology.</p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

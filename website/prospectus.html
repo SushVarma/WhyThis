@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prospectus — WhyThis</title>
+<meta name="description" content="A confidential business prospectus for WhyThis — problem, product, market, business model, roadmap, and next steps.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <span class="dots"><span></span><span></span><span></span></span>
+    <a class="wordmark" href="index.html">why-this<span class="dim">.md</span></a>
+    <nav class="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link active" href="prospectus.html">Prospectus</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </nav>
+    <a class="cta-btn" href="contact.html">Get a demo</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="p-cover">
+      <p class="eyebrow">Confidential · Prepared September 2026</p>
+      <h1>Why<span class="accent-word">This</span></h1>
+      <p class="subtitle">Institutional memory for engineering teams</p>
+      <p class="tagline">A business prospectus covering the problem, the product, the market, and the business model behind software that answers <em>why</em> a piece of code, a process, or a decision exists — with a citation, not a guess.</p>
+      <div class="p-cover-meta">
+        <span>Prepared by <b>Sushma Varma</b></span>
+        <span>Stage: <b>Working MVP · pre-revenue</b></span>
+        <span>Contact: <b>sushma.verma@instalogic.in</b></span>
+      </div>
+      <div class="glance-grid">
+        <div class="glance-cell"><div class="k">Category</div><div class="v">Developer / engineering-ops SaaS</div></div>
+        <div class="glance-cell"><div class="k">Target customer</div><div class="v">Software companies, 20–200 people, 10–50 engineers</div></div>
+        <div class="glance-cell"><div class="k">Pricing model</div><div class="v">Per-engineer · $15/user/mo · $300/mo minimum</div></div>
+        <div class="glance-cell"><div class="k">Product surface</div><div class="v">Web dashboard, API, Slack <span class="mono">/why-this</span></div></div>
+        <div class="glance-cell"><div class="k">Stack</div><div class="v">FastAPI, Next.js, Postgres + pgvector, Hugging Face LLM</div></div>
+      </div>
+    </div>
+
+    <div class="p-body">
+      <aside class="p-toc">
+        <div class="p-toc-label">Contents</div>
+        <ol>
+          <li><a href="#s1"><span class="n">01</span>Executive summary</a></li>
+          <li><a href="#s2"><span class="n">02</span>The problem</a></li>
+          <li><a href="#s3"><span class="n">03</span>The product</a></li>
+          <li><a href="#s4"><span class="n">04</span>How it works</a></li>
+          <li><a href="#s5"><span class="n">05</span>Market &amp; customer</a></li>
+          <li><a href="#s6"><span class="n">06</span>Business model</a></li>
+          <li><a href="#s7"><span class="n">07</span>Positioning</a></li>
+          <li><a href="#s8"><span class="n">08</span>Roadmap &amp; validation</a></li>
+          <li><a href="#s9"><span class="n">09</span>Next steps</a></li>
+        </ol>
+      </aside>
+
+      <div class="p-sections">
+        <section class="p-section" id="s1">
+          <p class="sec-num">01</p><h2>Executive summary</h2>
+          <div class="prose">
+            <p>WhyThis is software that gives engineering teams back the reasoning behind their own codebase. It connects to a company's GitHub, Slack, and Jira, indexes the commits, pull requests, messages, and tickets that make up its decision history, and answers plain-language questions — "why does <span class="mono">calculateTax()</span> work this way?" — with the specific commit, PR, and approver behind that decision, not a plausible-sounding guess.</p>
+            <p>The product is built and functional: a multi-tenant backend (each client's data and credentials fully isolated), retrieval over embedded decision history, a citation-forced answer model, a web dashboard, and a Slack slash command. It is pre-revenue, and the near-term plan is a small, free pilot program with 3–5 engineering teams to validate answer quality and willingness to pay before any wider go-to-market spend.</p>
+            <p>The target customer is narrow and deliberate: software companies with 20–200 people and 10–50 engineers — large enough that institutional knowledge routinely walks out the door, small enough that a single champion (a CTO or VP Engineering) can approve the purchase without a procurement process.</p>
+          </div>
+        </section>
+
+        <section class="p-section" id="s2">
+          <p class="sec-num">02</p><h2>The problem</h2>
+          <div class="prose">
+            <p>Companies remember <em>what</em> happened. They lose <em>why</em>. A developer finds an unusual conditional, a disabled retry, a hardcoded exception for one client — and the reasoning behind it lives nowhere durable: a Slack thread from eighteen months ago, in the memory of an engineer who has since left, or nowhere at all beyond a PR description that just says "fix bug."</p>
+            <p>The standard response today is to ask around and wait, or to skip asking and guess. Both are expensive in a way that's easy to underweight because it happens in small, constant increments rather than one visible cost: minutes lost per question, multiplied across a team, multiplied across every week a company operates without a durable record of its own reasoning.</p>
+          </div>
+        </section>
+
+        <section class="p-section" id="s3">
+          <p class="sec-num">03</p><h2>The product</h2>
+          <div class="prose">
+            <p>WhyThis connects to a client's GitHub repository, Slack workspace, and Jira project using read-only, revocable credentials. It indexes commits, pull request titles and descriptions, Slack messages, and Jira tickets — embedding each one and linking related items together, so a PR, its Slack discussion, and its Jira ticket resolve as a single answer instead of three separate searches.</p>
+            <p>When a question is asked — from the dashboard or via a Slack <span class="mono">/why-this</span> command — the system retrieves the most relevant indexed items and asks a language model to synthesize a direct answer, deliberately instructed to cite its sources and to say plainly when the indexed history doesn't contain a clear answer.</p>
+          </div>
+          <figure>
+            <div class="code-card" style="max-width:520px;">
+              <div class="code-card-head"><span class="filename">billing/tax.js</span><span class="badge">annotated</span></div>
+              <div class="code-body">
+                <div class="code-line"><span class="ln">1</span><span><span class="kw">function</span> <span class="fn">calculateTax</span>(invoice) {</span></div>
+                <div class="code-line"><span class="ln">2</span><span>&nbsp;&nbsp;<span class="kw">if</span> (invoice.client === <span class="str">'client_x'</span>) {</span></div>
+                <div class="code-line is-active"><span class="ln">3</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> invoice.subtotal * RATES.client_x;</span></div>
+                <div class="code-line"><span class="ln">4</span><span>&nbsp;&nbsp;}</span></div>
+                <div class="code-line"><span class="ln">5</span><span>&nbsp;&nbsp;<span class="kw">return</span> invoice.subtotal * RATES.default;</span></div>
+                <div class="code-line"><span class="ln">6</span><span>}</span></div>
+              </div>
+              <div class="blame-card">
+                <div class="row1"><span class="commit">a1e4f92</span><span class="date">Mar 14, 2026</span></div>
+                <p class="pr-title">PR #1842 — "Client X uses a non-standard tax rule"</p>
+                <p class="why">Client X's contract specifies a flat regional rate. The old generic path caused a billing error in Feb 2026 — this branch isolates their case.</p>
+                <div class="blame-meta">
+                  <span class="chip">by <b>Priya Nair</b></span><span class="chip">#backend</span><span class="chip">TAX-1842</span><span class="chip">approved: <b>Sarah · Amit</b></span>
+                </div>
+              </div>
+            </div>
+            <figcaption>Figure 1 — an illustrative WhyThis answer: the commit, PR, discussion, and approver behind one line of code.</figcaption>
+          </figure>
+        </section>
+
+        <section class="p-section" id="s4">
+          <p class="sec-num">04</p><h2>How it works</h2>
+          <div class="steps">
+            <div class="step"><span class="num">01</span><div><h3>Connect</h3><p>A read-only GitHub token, a Slack bot invited to a few channels, a Jira project. No new tool for engineers to learn.</p></div></div>
+            <div class="step"><span class="num">02</span><div><h3>Index</h3><p>Commits, PRs, messages, and tickets are embedded and cross-referenced into one searchable decision history, scoped privately to that client alone.</p></div></div>
+            <div class="step"><span class="num">03</span><div><h3>Ask</h3><p>A question in the dashboard or <span class="mono">/why-this</span> in Slack returns a sourced answer — or an honest "the history doesn't say" — in seconds.</p></div></div>
+          </div>
+        </section>
+
+        <section class="p-section" id="s5">
+          <p class="sec-num">05</p><h2>Market &amp; target customer</h2>
+          <div class="prose">
+            <p>The intended customer is software companies with roughly 20–200 employees and 10–50 engineers: large enough that engineers routinely touch code they didn't write and can't easily ask its author, small enough that a CTO or VP Engineering can approve a purchase directly. Distribution leans on channels where that buyer is already reachable directly — CTO-focused LinkedIn outreach, YC and startup communities, engineering-leadership Slack groups, and warm referrals.</p>
+          </div>
+          <div class="callout">
+            <span class="lbl">Illustrative unit economics — not a forecast</span>
+            A 30-engineer client at $15/user/month is $450/month (above the $300 minimum) — roughly $5,400/year per client. Fifty such clients would be on the order of $270,000 in annual recurring revenue. These figures size the model, not a claim about clients signed to date.
+          </div>
+        </section>
+
+        <section class="p-section" id="s6">
+          <p class="sec-num">06</p><h2>Business model</h2>
+          <p class="price-lead"><b>$15/user/month</b> · <b>$300/month</b> minimum — priced per engineer, not per seat a company doesn't use.</p>
+          <div class="ledger">
+            <div class="ledger-row head"><div>Plan</div><div>Price</div><div>Included</div></div>
+            <div class="ledger-row"><div class="plan-name">Team</div><div class="plan-price">$300<small>/mo</small></div><div class="plan-includes">Up to 20 engineers · 1 GitHub org · 1 Slack workspace · 1 Jira project</div></div>
+            <div class="ledger-row"><div class="plan-name">Business</div><div class="plan-price">$1,000–3,000<small>/mo</small></div><div class="plan-includes">Up to 100 engineers · multiple repos &amp; workspaces · priority support</div></div>
+            <div class="ledger-row"><div class="plan-name">Enterprise</div><div class="plan-price">Custom</div><div class="plan-includes">Unlimited engineers · SSO · audit log · dedicated onboarding</div></div>
+          </div>
+        </section>
+
+        <section class="p-section" id="s7">
+          <p class="sec-num">07</p><h2>Positioning</h2>
+          <div class="prose"><p>The wedge is deliberately narrow: answering "why does this exist?" with a citation. Everything below is a conscious choice not to build it — each is a larger, more crowded, more capital-intensive product than the problem currently calls for.</p></div>
+          <div class="two-col">
+            <div>
+              <h3>This is not</h3>
+              <ul class="not-list">
+                <li>A general company chatbot</li>
+                <li>A Notion or wiki competitor</li>
+                <li>A full organizational knowledge graph</li>
+                <li>Meeting transcription or AI notetaking</li>
+                <li>Employee monitoring or activity scoring</li>
+              </ul>
+            </div>
+            <div>
+              <h3>This is</h3>
+              <ul class="yes-list">
+                <li>One question, answered with a citation</li>
+                <li>Read-only, revocable access — nothing autonomous</li>
+                <li>Isolated per client, by design</li>
+                <li>Honest when the history doesn't have an answer</li>
+                <li>Usable without changing how engineers already work</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="p-section" id="s8">
+          <p class="sec-num">08</p><h2>Roadmap &amp; validation plan</h2>
+          <div class="phases">
+            <div class="phase"><div><span class="when">Phase 0</span><span class="status done">Built</span></div><div><h3>Working multi-tenant MVP</h3><p>GitHub/Slack/Jira ingestion, embedded retrieval, citation-forced answers, dashboard, and Slack command — functional today, pre-revenue.</p></div></div>
+            <div class="phase"><div><span class="when">Phase 1</span><span class="status next">Next 30–60 days</span></div><div><h3>Free pilot, 3–5 teams</h3><p>Validate answer precision and real usage on live repos before charging anyone.</p></div></div>
+            <div class="phase"><div><span class="when">Phase 2</span><span class="status later">Post-validation</span></div><div><h3>Self-serve hardening</h3><p>Real authentication on project creation, encryption at rest for stored credentials, billing.</p></div></div>
+            <div class="phase"><div><span class="when">Phase 3</span><span class="status later">If demand signals it</span></div><div><h3>Selective expansion</h3><p>Additional sources (Linear, GitLab, Notion) added only where pilot teams actually ask for them.</p></div></div>
+          </div>
+        </section>
+
+        <section class="p-section" id="s9">
+          <p class="sec-num">09</p><h2>Next steps</h2>
+          <div class="ask-grid">
+            <div class="ask-col">
+              <span class="tag">For prospective clients</span>
+              <h3>Run a free pilot on your repo</h3>
+              <p>We connect a read-only GitHub token (and Slack/Jira if you'd like) and have it running within a day. No cost, no commitment.</p>
+              <p class="contact">→ sushma.verma@instalogic.in</p>
+            </div>
+            <div class="ask-col">
+              <span class="tag">For investors &amp; partners</span>
+              <h3>Currently self-funded, pre-revenue</h3>
+              <p>Bootstrapped through the pilot-validation stage by design. Open to conversations with investors and partners who work with early-stage developer tools.</p>
+              <p class="contact">→ sushma.verma@instalogic.in</p>
+            </div>
+          </div>
+          <div style="margin-top:22px;"><a class="cta-btn" href="contact.html">Start a conversation →</a></div>
+        </section>
+      </div>
+    </div>
+
+    <p class="p-disclaimer">This document is prepared for informational and discussion purposes only. It does not constitute an offer or solicitation to buy or sell any security or investment interest, and any figures presented as illustrative are explicitly marked as such rather than as historical results.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="prospectus.html">Prospectus</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:sushma.verma@instalogic.in">sushma.verma@instalogic.in</a>
+      </div>
+    </div>
+    <p class="footer-fine">WhyThis — institutional memory for engineering teams. Built for teams tired of Slack archaeology.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WhyThis — Institutional memory for engineering teams</title>
+<meta name="description" content="WhyThis answers why a piece of production code, a process, or a decision exists — with the actual commit, PR, and approver, not a guess.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <span class="dots"><span></span><span></span><span></span></span>
+    <a class="wordmark" href="index.html">why-this<span class="dim">.md</span></a>
+    <nav class="nav-links">
+      <a class="nav-link active" href="index.html">Home</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="prospectus.html">Prospectus</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </nav>
+    <a class="cta-btn" href="contact.html">Get a demo</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Institutional memory for engineering teams</p>
+          <h1>Every line of code<br>has a reason.<br>Most teams lose it.</h1>
+          <p class="hero-sub">WhyThis reads your GitHub history, Slack threads, and Jira tickets, then answers <span class="mono">/why-this</span> questions with the actual commit, PR, and approver — not a guess from whoever's at their desk.</p>
+          <div class="hero-ctas">
+            <a class="cta-btn" href="contact.html">Get a demo</a>
+            <a class="cta-ghost" href="#demo">See a live example ↓</a>
+          </div>
+        </div>
+        <div class="code-card">
+          <div class="code-card-head"><span class="filename">billing/tax.js</span><span class="badge">annotated</span></div>
+          <div class="code-body">
+            <div class="code-line"><span class="ln">1</span><span><span class="kw">function</span> <span class="fn">calculateTax</span>(invoice) {</span></div>
+            <div class="code-line"><span class="ln">2</span><span>&nbsp;&nbsp;<span class="kw">if</span> (invoice.client === <span class="str">'client_x'</span>) {</span></div>
+            <div class="code-line is-active"><span class="ln">3</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> invoice.subtotal * RATES.client_x; <span class="cm">// ?</span></span></div>
+            <div class="code-line"><span class="ln">4</span><span>&nbsp;&nbsp;}</span></div>
+            <div class="code-line"><span class="ln">5</span><span>&nbsp;&nbsp;<span class="kw">return</span> invoice.subtotal * RATES.default;</span></div>
+            <div class="code-line"><span class="ln">6</span><span>}</span></div>
+          </div>
+          <div class="blame-card">
+            <div class="row1"><span class="commit">a1e4f92</span><span class="date">Mar 14, 2026</span></div>
+            <p class="pr-title">PR #1842 — "Client X uses a non-standard tax rule"</p>
+            <p class="why">Client X's contract specifies a flat regional rate instead of the default calculation. The old generic path caused a billing error in Feb 2026 — this branch was added specifically to isolate their case.</p>
+            <div class="blame-meta">
+              <span class="chip">by <b>Priya Nair</b></span>
+              <span class="chip">#backend</span>
+              <span class="chip">TAX-1842</span>
+              <span class="chip">approved: <b>Sarah · Amit</b></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="wrap">
+    <div class="section problem">
+      <p class="eyebrow">The actual problem</p>
+      <blockquote>Your team remembers <em>what</em> happened.<br>It loses <em>why</em>.</blockquote>
+      <div class="terminal-notes">
+        <div><span>//</span> the answer is buried in a Slack thread from 18 months ago</div>
+        <div><span>//</span> the engineer who wrote it left the company in June</div>
+        <div><span>//</span> the PR description just says "fix tax bug"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="section bordered" id="how">
+      <p class="eyebrow">How it works</p>
+      <h2 class="section-head" style="max-width:none;">Three steps, no new habits</h2>
+      <div class="how-grid">
+        <div class="how-step">
+          <svg class="how-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="6" r="2.4"/><circle cx="7" cy="18" r="2.4"/><circle cx="17" cy="12" r="2.4"/><path d="M7 8.4V15.6M9.2 6.9 14.8 10.5M9.2 17.1 14.8 13.5"/></svg>
+          <div class="how-num">01 · Connect</div>
+          <h3>Point it at what you already use</h3>
+          <p>A read-only GitHub token, a Slack bot invited to a few channels, a Jira project. No new tools for engineers to adopt.</p>
+        </div>
+        <div class="how-step">
+          <svg class="how-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 4.5v15"/></svg>
+          <div class="how-num">02 · Index</div>
+          <h3>Commits, PRs, threads, tickets — linked</h3>
+          <p>Every item is embedded and cross-referenced, so a PR, its Slack discussion, and its Jira ticket resolve as one answer, not three searches.</p>
+        </div>
+        <div class="how-step">
+          <svg class="how-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4a5 5 0 0 1 5 5v3a5 5 0 0 1-10 0V9a5 5 0 0 1 5-5Z"/><path d="M12 21v-3M8.5 21h7"/></svg>
+          <div class="how-num">03 · Ask</div>
+          <h3>In Slack, or the dashboard</h3>
+          <p><span class="mono">/why-this calculateTax()</span> — a sourced answer back in seconds, with the commit, the PR, and who approved it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="section bordered" id="demo">
+      <div class="section-head">
+        <p class="eyebrow">Live example</p>
+        <h2>Try a few real-shaped questions</h2>
+        <p>Example answers below, staged from a working pilot's data shape — this is what a query returns once your repo, Slack, and Jira are connected.</p>
+      </div>
+      <div class="demo-panel">
+        <div class="demo-tabs" role="tablist">
+          <button class="demo-tab active" data-demo="0">Why does calculateTax() work this way?</button>
+          <button class="demo-tab" data-demo="1">Why did we switch payment providers?</button>
+          <button class="demo-tab" data-demo="2">Why is retry disabled on the export job?</button>
+        </div>
+        <div class="demo-body" id="demo-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="section bordered">
+      <p class="eyebrow">The difference</p>
+      <h2 class="section-head" style="max-width:none;">Without it vs. with it</h2>
+      <div class="compare-grid">
+        <div class="compare-col bad">
+          <span class="tag">Without WhyThis</span>
+          <h3>~40 minutes, maybe an answer</h3>
+          <ul class="compare-steps">
+            <li>Ping the one teammate who might know</li>
+            <li>They're in a meeting, or they left the team</li>
+            <li>Dig through Slack search, guess at keywords</li>
+            <li>Ship a change based on a best guess</li>
+          </ul>
+        </div>
+        <div class="compare-col good">
+          <span class="tag">With WhyThis</span>
+          <h3>Under a minute, sourced</h3>
+          <ul class="compare-steps">
+            <li>Ask in the dashboard or Slack</li>
+            <li>Get the commit, PR, ticket, and approver</li>
+            <li>Told plainly when the context doesn't answer it</li>
+            <li>Ship with the actual reason in hand</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="section bordered">
+      <p class="eyebrow">Pricing</p>
+      <h2 class="section-head" style="max-width:none;">Priced per engineer, not per seat you don't use</h2>
+      <p class="price-lead"><b>$15/user/month</b> · <b>$300/month</b> minimum</p>
+      <div class="ledger">
+        <div class="ledger-row head"><div>Plan</div><div>Price</div><div>Included</div></div>
+        <div class="ledger-row">
+          <div class="plan-name">Team</div>
+          <div class="plan-price">$300<small>/mo</small></div>
+          <div class="plan-includes">Up to 20 engineers · 1 GitHub org · 1 Slack workspace · 1 Jira project</div>
+        </div>
+        <div class="ledger-row">
+          <div class="plan-name">Business</div>
+          <div class="plan-price">$1,000–3,000<small>/mo</small></div>
+          <div class="plan-includes">Up to 100 engineers · multiple repos &amp; workspaces · priority support</div>
+        </div>
+        <div class="ledger-row">
+          <div class="plan-name">Enterprise</div>
+          <div class="plan-price">Custom</div>
+          <div class="plan-includes">Unlimited engineers · SSO · audit log · dedicated onboarding</div>
+        </div>
+      </div>
+      <p style="margin-top:16px;"><a class="nav-link" style="font-size:0.86rem;" href="prospectus.html">Read the full business case →</a></p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="section bordered final-cta">
+      <p class="eyebrow">Pilot program</p>
+      <h2>Get it running on your repo this week.</h2>
+      <p style="margin-top:12px; color:var(--muted); max-width:52ch;">Free pilot for the first few teams — we set it up, you tell us what's useful and what's noise before anything's priced.</p>
+      <div class="final-cta-row">
+        <a class="cta-btn" href="contact.html">Book a pilot</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="prospectus.html">Prospectus</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:sushma.verma@instalogic.in">sushma.verma@instalogic.in</a>
+      </div>
+    </div>
+    <p class="footer-fine">WhyThis — institutional memory for engineering teams. Built for teams tired of Slack archaeology.</p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — WhyThis</title>
+<meta name="description" content="Why WhyThis exists, who built it, and the working principles behind it.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <span class="dots"><span></span><span></span><span></span></span>
+    <a class="wordmark" href="index.html">why-this<span class="dim">.md</span></a>
+    <nav class="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link active" href="about.html">About</a>
+      <a class="nav-link" href="prospectus.html">Prospectus</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </nav>
+    <a class="cta-btn" href="contact.html">Get a demo</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="section about-hero">
+      <p class="eyebrow">About</p>
+      <h1>Built by someone who got tired of asking.</h1>
+      <div class="prose lede">
+        <p>WhyThis started from a small, recurring annoyance: opening a file, finding a line of code that made no obvious sense, and having no way to find out why it was there short of pinging someone and waiting. Most of the time the answer existed — in a closed pull request, a Slack thread, a Jira ticket — it just wasn't anywhere a person could actually search.</p>
+        <p>It's built and run by <b>Sushma Varma</b>, currently as a solo, early-stage effort rather than a funded team with a headcount to show for it. That's a deliberate starting point, not a limitation to apologize for: a small, focused build is easier to keep honest about what it does and doesn't do yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="section bordered">
+      <p class="eyebrow">Why now</p>
+      <div class="prose">
+        <p>Retrieval-plus-synthesis — embedding a company's own history and asking a language model to answer strictly from it — only recently became reliable and cheap enough to build a product around. A plain keyword search over Slack or Jira never captured the connective tissue between a commit, the conversation around it, and the ticket that prompted it. That's the specific gap WhyThis is built to close, and no more than that.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="section bordered">
+      <p class="eyebrow">How this gets built</p>
+      <h2 class="section-head" style="max-width:none;">A few working principles</h2>
+      <div class="principles">
+        <div class="principle">
+          <span class="mk">01</span>
+          <div><h3>Read-only, revocable, isolated</h3><p>Every credential a client gives WhyThis can be read-only and revoked at any time. Every client's data is scoped so no other client can ever see it.</p></div>
+        </div>
+        <div class="principle">
+          <span class="mk">02</span>
+          <div><h3>Honest about uncertainty</h3><p>An answer either cites its source or says plainly that the indexed history doesn't cover it. A confident guess is worse than no answer.</p></div>
+        </div>
+        <div class="principle">
+          <span class="mk">03</span>
+          <div><h3>Narrow before broad</h3><p>One question — "why does this exist?" — answered well, before any temptation to become a general company chatbot or a wiki replacement.</p></div>
+        </div>
+        <div class="principle">
+          <span class="mk">04</span>
+          <div><h3>Validate before scaling</h3><p>Free pilots with real engineering teams come before paid rollout, and paid rollout comes before spending on growth.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="section bordered">
+      <p class="eyebrow">Where things stand</p>
+      <div class="status-strip">
+        <span class="status-chip">Stage: <b>Working MVP</b></span>
+        <span class="status-chip">Revenue: <b>Pre-revenue</b></span>
+        <span class="status-chip">Team: <b>Solo-founder</b></span>
+        <span class="status-chip">Open to: <b>Pilots &amp; conversations</b></span>
+      </div>
+      <p style="margin-top:20px;"><a class="nav-link" style="font-size:0.86rem;" href="prospectus.html">Read the full prospectus →</a></p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="prospectus.html">Prospectus</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:sushma.verma@instalogic.in">sushma.verma@instalogic.in</a>
+      </div>
+    </div>
+    <p class="footer-fine">WhyThis — institutional memory for engineering teams. Built for teams tired of Slack archaeology.</p>
+  </div>
+</footer>
+
+</body>
+</html>
